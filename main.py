@@ -3,7 +3,7 @@ from time import sleep
 import os
 
 
-def menu():
+def layout():
 
     print('=<'*40)
     print('CALCULADORA DO GOBIS'.center(80))
@@ -29,53 +29,29 @@ def menu():
         print()
         operacao = int(input(
             'Escolha um dos numeros para cada operação do MENU DE NAVEGAÇÃO que deseja realizar: '))
-
-    if operacao == 0:
-        print('Operação escolhida =======> SOMA')
-        print('=<'*40)
-        soma()
-        print('=<'*40)
-    elif operacao == 1:
-        print('Operação escolhida =======> SUBTRAÇÃO')
-        print('=<'*40)
-        subtracao()
-        print('=<'*40)
-    elif operacao == 2:
-        print('Operação escolhida =======> MULTIPLICAÇÃO')
-        print('=<'*40)
-        multiplicao()
-        print('=<'*40)
-    elif operacao == 3:
-        print('Operação escolhida =======> DIVISÃO')
-        print('=<'*40)
-        divisao()
-        print('=<'*40)
-    elif operacao == 4:
-        print('Operação escolhida =======> EXPONENCIAÇÃO')
-        print('=<'*40)
-        exponenciacao()
-        print('=<'*40)
-    elif operacao == 5:
-        print('Operação escolhida =======> RAIZ QUADRADA')
-        print('=<'*40)
-        raiz()
-        print('=<'*40)
-
-
-menu()
-sleep(1)
-
-print('Quer fazer outra operação? \n S- Sim \n N- Não')
-navegacao = input().upper()
-while navegacao not in ['S', 'N']:
-    print('Por favor, escolha umas das opções')
+    listaoperacao = ["SOMA", "SUBTRAÇÃO", "MULTIPLICAÇÃO",
+                     "DIVISÃO", "EXPONENCIAÇÃO", "RAIZ QUADRADA"]
+    listafuncoes = [soma, subtracao, multiplicacao,
+                    divisao, exponenciacao, raiz]
+    for c in range(6):
+        if operacao == c:
+            print(F'Operação escolhida =======> {listaoperacao[c]}')
+            print('=<'*40)
+            listafuncoes[c]()
+            print('=<'*40)
+    print('Quer fazer outra operação? \n S- Sim \n N- Não')
     navegacao = input().upper()
-sleep(1)
-if navegacao == "S":
-    os.system('cls') or None
-    menu()
-elif navegacao == "N":
-    print('Ok, abraços!')
-    sleep(3)
-    os.system('cls') or None
-    exit()
+    while navegacao not in ['S', 'N']:
+        print('Por favor, escolha umas das opções')
+        navegacao = input().upper()
+    while navegacao == "S":
+        os.system('clear') or None
+        layout()
+    else:
+        print('Ok, abraços!')
+        sleep(3)
+        os.system('clear') or None
+        exit()
+
+
+layout()

@@ -17,7 +17,7 @@ def subtracao():
     return print(f'RESULTADO =======> {num1 - num2} ')
 
 
-def multiplicao():
+def multiplicacao():
     num1 = float(input('Digite o primeiro número: '))
     print()
     num2 = float(input('Digite o segundo número: '))
