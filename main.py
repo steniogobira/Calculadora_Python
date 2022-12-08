@@ -27,8 +27,7 @@ def layout():
     while operacao not in [0, 1, 2, 3, 4, 5]:
         print('Por favor, escolha umas das opções do MENU DE NAVEGAÇÃO')
         print()
-        operacao = int(input(
-            'Escolha um dos numeros para cada operação do MENU DE NAVEGAÇÃO que deseja realizar: '))
+        operacao = int(input())
     listaoperacao = ["SOMA", "SUBTRAÇÃO", "MULTIPLICAÇÃO",
                      "DIVISÃO", "EXPONENCIAÇÃO", "RAIZ QUADRADA"]
     listafuncoes = [soma, subtracao, multiplicacao,
